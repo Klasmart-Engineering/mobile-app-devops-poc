@@ -1,5 +1,11 @@
 name: "pull-request"
 on:
+  push:
+    branches:
+      - master
+      - develop
+      - feature/*
+      - bugfix/*
   pull_request:
     types: [opened, reopened]
 
