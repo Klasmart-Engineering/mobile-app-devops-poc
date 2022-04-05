@@ -12,5 +12,5 @@ import renderer from 'react-test-renderer';
 it('renders correctly', () => {
   const tree = renderer.create(<App />).toJSON();
   console.log(tree)
-  expect(tree.length).toBe(1);
+  expect(tree.length).toBe(2);
 });
