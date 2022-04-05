@@ -19,7 +19,7 @@ function GroceryShoppingList() {
         onChangeText={(text) => setGroceryItem(text)}
       />
       <Button
-        title="Add the item to list"
+        title="Add the item to list "
         onPress={addNewItemToShoppingList}
       />
       {items.map((item) => (
