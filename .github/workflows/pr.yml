@@ -1,0 +1,11 @@
+name: pull-request
+on: pull_request:
+    types: [opened, reopened]
+
+jobs:
+  validation:
+    name: Validation Stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v2
