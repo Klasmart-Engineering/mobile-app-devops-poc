@@ -26,5 +26,12 @@ jobs:
       - run: npm install
       - name: Run test
         run: npm test
-      - name: Clean Android
-        run: (cd android && ./gradlew clean) 
+      # - name: Clean Android
+      #   run: (cd android && ./gradlew clean) 
+      - name: Build Android
+        run: (cd android && ./gradlew assembleDebug)
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-artifact
+          path: android/app/build/outputs/apk/debug/app-debug.apk
