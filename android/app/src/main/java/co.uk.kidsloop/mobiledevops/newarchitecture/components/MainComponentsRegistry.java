@@ -1,4 +1,4 @@
-package com.mobiledevops.newarchitecture.components;
+package co.uk.kidsloop.mobiledevops.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

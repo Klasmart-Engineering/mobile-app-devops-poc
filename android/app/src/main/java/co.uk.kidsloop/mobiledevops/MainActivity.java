@@ -1,4 +1,4 @@
-package com.mobiledevops;
+package co.uk.kidsloop.mobiledevops;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

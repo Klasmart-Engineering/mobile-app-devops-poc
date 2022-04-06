@@ -1,4 +1,4 @@
-package com.mobiledevops.newarchitecture;
+package co.uk.kidsloop.mobiledevops.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,11 +19,12 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.mobiledevops.BuildConfig;
-import com.mobiledevops.newarchitecture.components.MainComponentsRegistry;
-import com.mobiledevops.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
+
+import co.uk.kidsloop.mobiledevops.BuildConfig;
+import co.uk.kidsloop.mobiledevops.newarchitecture.components.MainComponentsRegistry;
+import co.uk.kidsloop.mobiledevops.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 
 /**
  * A {@link ReactNativeHost} that helps you load everything needed for the New Architecture, both
