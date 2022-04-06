@@ -1,5 +1,9 @@
 name: "pull-request"
 on:
+  push:
+    branches:
+      - feature/*
+      - bugfix/*
   pull_request:
     types: [opened, reopened]
 
