@@ -11,7 +11,7 @@ on:
 
 jobs:
   validation:
-    name: Checkout and test
+    name: Build and upload
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -26,3 +26,16 @@ jobs:
       - run: npm install
       - name: Run test
         run: npm test
+      # - name: Clean Android
+      #   run: (cd android && ./gradlew clean) 
+      - name: Build Android
+        run: (cd android && ./gradlew assembleRelease)
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-artifact
+          path: android/app/build/outputs/apk/release/app-release.apk
