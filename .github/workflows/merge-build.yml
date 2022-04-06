@@ -26,3 +26,5 @@ jobs:
       - run: npm install
       - name: Run test
         run: npm test
+      - name: Clean Android
+        run: (cd android && ./gradlew clean) 
