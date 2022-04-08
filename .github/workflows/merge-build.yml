@@ -50,6 +50,8 @@ jobs:
           groups: qa
           file: android/app/build/outputs/apk/release/app-release.apk
       - run: git status
+      - run: git reset --hard
+      - run: git status
       - run: npm version patch
       - name: Commit files
         run: |
