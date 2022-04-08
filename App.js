@@ -15,7 +15,7 @@ function GroceryShoppingList() {
     <>
       <TextInput
         value={groceryItem}
-        placeholder="Enter grocery item"
+        placeholder="Enter grocery - item"
         onChangeText={(text) => setGroceryItem(text)}
       />
       <Button
