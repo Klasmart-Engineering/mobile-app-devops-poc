@@ -19,9 +19,9 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Checkout latest code
         uses: actions/checkout@v3
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+        # with:
+        #   persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+        #   fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -49,12 +49,14 @@ jobs:
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: qa
           file: android/app/build/outputs/apk/release/app-release.apk
-      - run: npm version patch
+      - run: git status
+      - run: git reset --hard
+      - run: git status
       - name: Commit files
         run: |
-          git config --local user.email "rihan.farman@kidsloop.live"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "[skip ci] Update next app version number" -a
+      - run: npm version patch
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
