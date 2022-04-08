@@ -52,12 +52,12 @@ jobs:
       - run: git status
       - run: git reset --hard
       - run: git status
-      - run: npm version patch
       - name: Commit files
         run: |
-          git config --local user.email "rihan.farman@kidsloop.live"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "[skip ci] Update next app version number" -a
+      - run: npm version patch
+      - run: git commit -m "[skip ci] Update next app version number" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
