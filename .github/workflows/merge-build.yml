@@ -65,6 +65,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - run: ls
       - uses: actions/download-artifact@v2
         with:
           name: android-artifact.apk
