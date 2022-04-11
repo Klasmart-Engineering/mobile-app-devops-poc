@@ -47,7 +47,7 @@ jobs:
       #     path: android/app/build/outputs/apk/release/app-release.apk
       
       # - name: Build iOS
-      - run: (cd ios && fastlane beta) 
+      - run: (cd ios && bundle exec fastlane beta) 
       # - run: git status
       # - run: git reset --hard
       # - run: git status
