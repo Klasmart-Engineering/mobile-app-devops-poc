@@ -10,9 +10,9 @@ on:
       - feature/setup
 
 jobs:
-  validation:
-    name: Build and upload
-    runs-on: ubuntu-latest
+  build:
+    name: build
+    runs-on: macos-11
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -22,6 +22,10 @@ jobs:
         # with:
         #   persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         #   fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '11'
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -40,15 +44,9 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: android-artifact
+          name: android-artifact.apk
           path: android/app/build/outputs/apk/release/app-release.apk
-      - name: upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_APP_ID}}
-          token: ${{secrets.FIREBASE_TOKEN}}
-          groups: qa
-          file: android/app/build/outputs/apk/release/app-release.apk
+      
       - run: git status
       - run: git reset --hard
       - run: git status
@@ -62,3 +60,18 @@ jobs:
         with:
           github_token: ${{ secrets.RIHAN_GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+  upload:
+    name: Build and upload
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: android-artifact.apk
+      - name: upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          token: ${{secrets.FIREBASE_TOKEN}}
+          groups: qa
+          file: .apk
