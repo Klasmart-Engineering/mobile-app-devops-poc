@@ -65,15 +65,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ls
       - uses: actions/download-artifact@v2
         with:
           name: android-artifact.apk
-      - run: ls
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{secrets.FIREBASE_APP_ID}}
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: qa
-          file: android-artifact.apk
+          file: app-release.apk
