@@ -19,7 +19,7 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Checkout latest code
         uses: actions/checkout@v3
-      - run: pod install
+      - run: (cd ios && pod install)
         # with:
         #   persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         #   fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
