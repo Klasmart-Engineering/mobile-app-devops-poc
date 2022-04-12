@@ -491,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = H5LAQS44DF;
@@ -507,7 +508,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.uk.kidsloop.mobiledevops;
 				PRODUCT_NAME = MobileDevops;
-				PROVISIONING_PROFILE_SPECIFIER = MobileDevopsDevelopment;
+				PROVISIONING_PROFILE_SPECIFIER = MobileDevopsAdhoc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -520,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = H5LAQS44DF;
@@ -535,7 +537,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.uk.kidsloop.mobiledevops;
 				PRODUCT_NAME = MobileDevops;
-				PROVISIONING_PROFILE_SPECIFIER = MobileDevopsDevelopment;
+				PROVISIONING_PROFILE_SPECIFIER = MobileDevopsAdhoc;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
