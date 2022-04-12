@@ -32,20 +32,20 @@ jobs:
           node-version: '17.x'
       - run: npm install
       - run: (cd ios && pod install)
-      # - name: Run test
-      #   run: npm test
+      - name: Run test
+        run: npm test
 
-      # - name: Build Android
-      #   run: (cd android && ./gradlew assembleRelease)
-      #   env:
-      #     SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-      #     SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-      #     SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: android-artifact.apk
-      #     path: android/app/build/outputs/apk/release/app-release.apk
+      - name: Build Android
+        run: (cd android && ./gradlew assembleRelease)
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-artifact.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
       
       # - name: Build iOS
       - name: Install the Apple certificate and provisioning profile
@@ -77,6 +77,11 @@ jobs:
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
       - run: (cd ios && fastlane beta) 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: MobileDevops.ipa
+          path: ios/MobileDevops.ipa
       # - run: git status
       # - run: git reset --hard
       # - run: git status
@@ -94,11 +99,14 @@ jobs:
     name: Build and upload
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ false }}
+    # if: ${{ false }}
     steps:
       - uses: actions/download-artifact@v2
         with:
           name: android-artifact.apk
+      - uses: actions/download-artifact@v2
+        with:
+          name: MobileDevops.ipa
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
@@ -106,3 +114,10 @@ jobs:
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: qa
           file: app-release.apk
+      - name: upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          token: ${{secrets.FIREBASE_TOKEN}}
+          groups: qa
+          file: MobileDevops.ipa
