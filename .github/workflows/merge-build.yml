@@ -19,19 +19,19 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Checkout latest code
         uses: actions/checkout@v3
-      - run: (cd ios && pod install)
         # with:
         #   persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
         #   fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-      # - uses: actions/setup-java@v3
-      #   with:
-      #     distribution: 'temurin' # See 'Supported distributions' for available options
-      #     java-version: '11'
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '17.x'
-      # - run: npm install
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '11'
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+      - run: npm install
+      - run: (cd ios && pod install)
       # - name: Run test
       #   run: npm test
 
