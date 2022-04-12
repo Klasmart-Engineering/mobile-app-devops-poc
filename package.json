@@ -1,13 +1,14 @@
 {
   "name": "MobileDevops",
-  "version": "0.0.1",
+  "version": "0.0.13",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postversion": "react-native-version"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -21,6 +22,7 @@
     "eslint": "^8.12.0",
     "jest": "^27.5.1",
     "metro-react-native-babel-preset": "^0.70.0",
+    "react-native-version": "^4.0.0",
     "react-test-renderer": "17.0.2"
   },
   "jest": {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "194464715235",
+    "project_id": "mobiledevops-d83e6",
+    "storage_bucket": "mobiledevops-d83e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194464715235:android:dd49b443748dcea0e450d6",
+        "android_client_info": {
+          "package_name": "co.uk.kidsloop.mobiledevops"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194464715235-shc89k412l6lkadrh6idrktfhfgv8ma5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVQZXs2zGCWk9gZia_-riVQI4on5BRS4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194464715235-shc89k412l6lkadrh6idrktfhfgv8ma5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

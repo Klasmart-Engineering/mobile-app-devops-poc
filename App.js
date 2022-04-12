@@ -1,6 +1,6 @@
 
 import React, { useState,useCallback } from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, SafeAreaView, TextInput, Button } from 'react-native';
 
 function GroceryShoppingList() {
   const [groceryItem, setGroceryItem] = useState('');
@@ -12,10 +12,10 @@ function GroceryShoppingList() {
   }, [groceryItem, items]);
 
   return (
-    <>
+    <SafeAreaView>
       <TextInput
         value={groceryItem}
-        placeholder="Enter grocery item"
+        placeholder="Enter grocery - item"
         onChangeText={(text) => setGroceryItem(text)}
       />
       <Button
@@ -25,7 +25,7 @@ function GroceryShoppingList() {
       {items.map((item) => (
         <Text key={item}>{item}</Text>
       ))}
-    </>
+    </SafeAreaView>
   );
 }
 

@@ -1,4 +1,4 @@
-package com.mobiledevops.newarchitecture.modules;
+package co.uk.kidsloop.mobiledevops.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
