@@ -82,19 +82,19 @@ jobs:
         with:
           name: MobileDevops.ipa
           path: ios/MobileDevops.ipa
-      # - run: git status
-      # - run: git reset --hard
-      # - run: git status
-      # - name: Commit files
-      #   run: |
-      #     git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #     git config --local user.name "github-actions[bot]"
-      # - run: npm version patch -m "[skip ci] Update next app version number"
-      # - name: Push changes
-      #   uses: ad-m/github-push-action@master
-      #   with:
-      #     github_token: ${{ secrets.RIHAN_GITHUB_TOKEN }}
-      #     branch: ${{ github.ref }}
+      - run: git status
+      - run: git reset --hard
+      - run: git status
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+      - run: npm version patch -m "[skip ci] Update next app version number"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.RIHAN_GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
   upload:
     name: Build and upload
     needs: build
